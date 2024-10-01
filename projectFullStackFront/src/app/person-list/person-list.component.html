@@ -1,6 +1,23 @@
-<h2 class="text-center">Person List</h2>
-<table class="table table-striped">
-  <thead>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a href="personRegister" class="nav-link">Comeback</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="person" routerLinkActive="active" class="nav-link"
+        >People List</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<br />
+<h2 class="text-center">Register</h2>
+<br />
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
       <tr class="text-center">
         <th>#</th>
         <th>First Name</th>
@@ -10,16 +27,23 @@
         <th>Phone</th>
         <th>CPF</th>
       </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
       <tr class="text-center" *ngFor="let person of persons; index as i">
-        <td>{{i + 1}}</td>
-        <td>{{person.firstName}}</td>
-        <td>{{person.lastName}}</td>
-        <td>{{person.birthDate}}</td>
-        <td>{{person.email}}</td>
-        <td>{{person.phone}}</td>
-        <td>{{person.cpf}}</td>
+        <td>{{ i + 1 }}</td>
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.lastName }}</td>
+        <td>{{ person.birthDate }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.phone }}</td>
+        <td>{{ person.cpf }}</td>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span>&copy; All Rights Reserved 2024</span>
+  </div>
+</footer>

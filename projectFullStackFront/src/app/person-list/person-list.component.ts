@@ -20,7 +20,7 @@ export class PersonListComponent implements OnInit {
     try {
       this.findAllPerson();
     } catch (error) {
-      console.error(error);
+      throw new Error('Error ao buscar as pessoas'+ error);
 
     }
   }
