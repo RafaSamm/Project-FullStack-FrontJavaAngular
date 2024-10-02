@@ -1,3 +1,11 @@
+.scrollable-content {
+  height: 400px; /* Defina a altura do elemento */
+  overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
+}
+
+
+
+
 .footer {
   position: absolute;
   bottom: 0;

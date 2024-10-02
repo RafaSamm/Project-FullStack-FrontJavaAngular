@@ -15,71 +15,67 @@
 
 <h1 class="text-center">Welcome, register a person:</h1>
 
-<form (ngsubmit)="save()">
-  <div class="form-group">
-    <label><strong>First Name:</strong></label>
-    <input
-      type="text"
-      class="form-control"
-      id="firstName"
-      (ngModel)="(person.firstName)"
-      name="firstName"
-    />
-  </div>
-  <div class="form-group">
-    <label><strong>Last Name:</strong></label>
-    <input
-      type="text"
-      class="form-control"
-      id="lastName"
-      (ngModel)="(person.lastName)"
-      name="lastName"
-    />
-  </div>
-  <div class="form-group">
-    <label><strong>Birthdate:</strong></label>
-    <input
-      type="date"
-      class="form-control"
-      id="birthdate"
-      (ngModel)="(person.birthDate)"
-      name="birthDate"
-    />
-  </div>
-  <div class="form-group">
-    <label><strong>Email:</strong></label>
-    <input
-      type="text"
-      class="form-control"
-      id="email"
-      (ngModel)="(person.email)"
-      name="email"
-    />
-  </div>
-  <div class="form-group">
-    <label><strong>Phone:</strong></label>
-    <input
-      type="text"
-      class="form-control"
-      id="phone"
-      (ngModel)="(person.phone)"
-      name="phone"
-    />
-  </div>
-  <div class="form-group">
-    <label><strong>CPF:</strong></label>
-    <input
-      type="text"
-      class="form-control"
-      id="cpf"
-      (ngModel)="(person.cpf)"
-      name="cpf"
-    />
-  </div>
-  <br />
+<div class="col-md-6 offset-md-3">
+  <form (ngSubmit)="save()" class="scrollable-content">
+    <div class="form-group">
+      <label><strong>First Name:</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="person.firstName"
+        name="firstName">
+    </div>
+    <div class="form-group">
+      <label><strong>Last Name:</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        [(ngModel)]="person.lastName"
+        name="lastName">
+    </div>
+    <div class="form-group">
+      <label><strong>Birthdate:</strong></label>
+      <input
+        type="date"
+        class="form-control"
+        id="birthdate"
+        [(ngModel)]="person.birthDate"
+        name="birthDate">
+    </div>
+    <div class="form-group">
+      <label><strong>Email:</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        [(ngModel)]="person.email"
+        name="email">
+    </div>
+    <div class="form-group">
+      <label><strong>Phone:</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="phone"
+        [(ngModel)]="person.phone"
+        name="phone">
+    </div>
+    <div class="form-group">
+      <label><strong>CPF:</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="cpf"
+        [(ngModel)]="person.cpf"
+        name="cpf">
+    </div>
+    <br />
 
-  <button class="btn btn-success" type="submit">Register</button>
-</form>
+    <button class="btn btn-success" type="submit">Register</button>
+  </form>
+</div>
 
 <footer class="footer">
   <div class="container">

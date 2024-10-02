@@ -14,4 +14,7 @@ export class PersonService {
   findAllPerson(): Observable<Person[]> {
     return this.httpClient.get<Person[]>(`${this.url}`);
   }
+  createPerson(person: Person): Observable<Person> {
+    return this.httpClient.post<Person>(`${this.url}/create`, person);
+  }
 }
