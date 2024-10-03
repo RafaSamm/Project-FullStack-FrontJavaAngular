@@ -25,7 +25,7 @@ export class PersonRegistrationComponent implements OnInit {
 
   savePerson() {
     this.personService.createPerson(this.person).subscribe(
-      (response) => {
+      () => {
         alert('Person saved successfully:');
         this.person = new Person();
         this.goToPersonList();

@@ -2,13 +2,11 @@
   <ul class="navbar-nav">
     <li class="nav-item">
       <a routerLink="personRegister" routerLinkActive="active" class="nav-link"
-        >Person</a
-      >
+        >Person</a>
     </li>
     <li class="nav-item">
       <a href="person" routerLinkActive="active" class="nav-link"
-        >People List</a
-      >
+        >People List</a>
     </li>
   </ul>
 </nav>
@@ -16,7 +14,8 @@
 <h1 class="text-center">Welcome, register a person:</h1>
 
 <div class="col-md-6 offset-md-3">
-  <form (ngSubmit)="save()" class="scrollable-content">
+  <form (ngSubmit)="save()" #personForm="ngForm" class="scrollable-content">
+
     <div class="form-group">
       <label><strong>First Name:</strong></label>
       <input
@@ -24,8 +23,13 @@
         class="form-control"
         id="firstName"
         [(ngModel)]="person.firstName"
-        name="firstName">
+        name="firstName"
+        #firstName="ngModel" required>
+        <div *ngIf="firstName.invalid && firstName.touched">
+          <small *ngIf="firstName.errors">Name cannot be null or empty</small>
+        </div>
     </div>
+
     <div class="form-group">
       <label><strong>Last Name:</strong></label>
       <input
@@ -33,8 +37,13 @@
         class="form-control"
         id="lastName"
         [(ngModel)]="person.lastName"
-        name="lastName">
+        name="lastName"
+        #lastName="ngModel" required>
+        <div *ngIf="lastName.invalid && lastName.touched">
+          <small *ngIf="lastName.errors">Last name cannot be null or empty</small>
+        </div>
     </div>
+
     <div class="form-group">
       <label><strong>Birthdate:</strong></label>
       <input
@@ -42,8 +51,13 @@
         class="form-control"
         id="birthdate"
         [(ngModel)]="person.birthDate"
-        name="birthDate">
+        name="birthDate"
+        #birthDate="ngModel" required>
+        <div *ngIf="birthDate.invalid && birthDate.touched">
+          <small *ngIf="birthDate.errors">Birth date cannot be null or empty</small>
+        </div>
     </div>
+
     <div class="form-group">
       <label><strong>Email:</strong></label>
       <input
@@ -51,8 +65,14 @@
         class="form-control"
         id="email"
         [(ngModel)]="person.email"
-        name="email">
+        name="email"
+        #email="ngModel" required email>
+        <div *ngIf="email.invalid && email.touched">
+            <small *ngIf="email.errors">Email cannot be null or empty</small><br>
+            <small *ngIf="email.errors && email.errors['email']">Invalid format email</small>
+        </div>
     </div>
+
     <div class="form-group">
       <label><strong>Phone:</strong></label>
       <input
@@ -60,8 +80,13 @@
         class="form-control"
         id="phone"
         [(ngModel)]="person.phone"
-        name="phone">
+        name="phone"
+        #phone="ngModel" required>
+        <div *ngIf="phone.invalid && phone.touched">
+          <small *ngIf="phone.errors">Phone cannot be null or empty</small>
+        </div>
     </div>
+
     <div class="form-group">
       <label><strong>CPF:</strong></label>
       <input
@@ -69,11 +94,15 @@
         class="form-control"
         id="cpf"
         [(ngModel)]="person.cpf"
-        name="cpf">
+        name="cpf"
+        #cpf="ngModel" required pattern="\d{11}">
+        <div *ngIf="cpf.invalid && cpf.touched">
+          <small *ngIf="cpf.errors && cpf.errors['pattern']">CPF must have 11 digits</small>
+        </div>
     </div>
     <br />
 
-    <button class="btn btn-success" type="submit">Register</button>
+    <button class="btn btn-success" type="submit" [disabled]="personForm.invalid">Register</button>
   </form>
 </div>
 
