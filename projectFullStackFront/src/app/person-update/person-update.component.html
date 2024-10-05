@@ -1,20 +1,7 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a href="home" routerLinkActive="active" class="nav-link"
-        >Comeback</a>
-    </li>
-    <li class="nav-item">
-      <a href="person" routerLinkActive="active" class="nav-link"
-        >People List</a>
-    </li>
-  </ul>
-</nav>
-
-<h1 class="text-center">Welcome, register a person:</h1>
+<h1 class="text-center">Update Person:</h1>
 
 <div class="col-md-6 offset-md-3">
-  <form (ngSubmit)="save()" #personForm="ngForm" class="scrollable-content">
+  <form (ngSubmit)="save()" #personForm="ngForm">
 
     <div class="form-group">
       <label><strong>First Name:</strong></label>
@@ -102,7 +89,9 @@
     </div>
     <br />
 
-    <button class="btn btn-success" type="submit" [disabled]="personForm.invalid">Submit</button>
+    <button class="btn btn-success update" type="submit" [disabled]="personForm.invalid">Update</button>
+    <button class="btn btn-danger cancel" type="button" (click)="cancel()">Cancel</button>
+
   </form>
 </div>
 
@@ -111,3 +100,4 @@
     <span>&copy; All Rights Reserved 2024</span>
   </div>
 </footer>
+

@@ -1,0 +1,19 @@
+.container {
+  margin-top: 50px;
+}
+
+button {
+  width: 20%;
+  height: 50px;
+ 
+}
+
+h1 {
+  color: brown;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+p{
+  color: black;
+}
+

@@ -2,6 +2,7 @@ import { PersonService } from './../service/person.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Person } from '../model/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'person-list',
@@ -13,21 +14,23 @@ import { Person } from '../model/person';
 export class PersonListComponent implements OnInit {
   persons: Person[] = [];
 
-  constructor(private personService: PersonService) {}
-
+  constructor(private personService: PersonService, private router: Router) {}
 
   ngOnInit(): void {
     try {
       this.findAllPerson();
     } catch (error) {
-      throw new Error('Error ao buscar as pessoas'+ error);
-
+      throw new Error('Error, people not found!!' + error);
     }
   }
 
-  private findAllPerson(): void {
+  findAllPerson(): void {
     this.personService.findAllPerson().subscribe((data) => {
       this.persons = data;
     });
+  }
+
+  updatePerson(id: number): void {
+    this.router.navigate(['/personUpdate', id]);
   }
 }
