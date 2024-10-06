@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { PersonService } from '../service/person.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'person-registration',
   standalone: true,
@@ -16,32 +15,27 @@ import { Router } from '@angular/router';
 export class PersonRegistrationComponent implements OnInit {
   person: Person = new Person();
 
-  constructor(private personService: PersonService,
-    private router: Router ) {}
+  constructor(private personService: PersonService, private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   savePerson() {
     this.personService.createPerson(this.person).subscribe(
       () => {
-        alert('Person saved successfully:');
         this.person = new Person();
+        alert('Person saved successfully:');
         this.goToPersonList();
       },
       (error) => {
         console.error('Error saving person:', error);
-      }
-    );
+      })
   }
   goToPersonList() {
     this.router.navigate(['/person']);
   }
 
-  save(){
+  save() {
     this.savePerson();
     this.goToPersonList();
   }
-
 }

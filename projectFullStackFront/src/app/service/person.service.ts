@@ -23,4 +23,7 @@ export class PersonService {
   getPersonById(id: number): Observable<Person> {
     return this.httpClient.get<Person>(`${this.url}/${id}`);
   }
+  deletePerson(id: number): Observable<Person> {
+    return this.httpClient.delete<Person>(`${this.url}/${id}`);
+  }
 }

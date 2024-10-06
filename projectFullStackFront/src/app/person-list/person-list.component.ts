@@ -33,4 +33,13 @@ export class PersonListComponent implements OnInit {
   updatePerson(id: number): void {
     this.router.navigate(['/personUpdate', id]);
   }
+
+  deletePerson(id: number): void {
+    this.personService.deletePerson(id).subscribe(
+      (data) => {
+        alert('Person deleted successfully');
+        console.log(data);
+        this.findAllPerson();
+      })
+  }
 }

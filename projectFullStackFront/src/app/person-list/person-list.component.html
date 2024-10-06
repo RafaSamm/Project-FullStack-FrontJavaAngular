@@ -39,6 +39,7 @@
         <td>{{ person.cpf }}</td>
         <td>
           <button (click)="updatePerson(person.id)" class="btn btn-info">Update</button>
+          <button (click)="deletePerson(person.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
         </td>
       </tr>
     </tbody>
