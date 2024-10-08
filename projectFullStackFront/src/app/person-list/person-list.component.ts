@@ -35,11 +35,13 @@ export class PersonListComponent implements OnInit {
   }
 
   deletePerson(id: number): void {
-    this.personService.deletePerson(id).subscribe(
-      (data) => {
-        alert('Person deleted successfully');
-        console.log(data);
-        this.findAllPerson();
-      })
+    this.personService.deletePerson(id).subscribe((data) => {
+      alert('Person deleted successfully');
+      console.log(data);
+      this.findAllPerson();
+    });
+  }
+  detailsPerson(id: number){
+    this.router.navigate(['/person-details', id]);
   }
 }
